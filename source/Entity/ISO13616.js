@@ -87,9 +87,10 @@ class ISO13616 {
 	 * @memberof ISO13616
 	 */
 	static [Symbol.match](input) {
-		const [, country, checksum, account] = Mod97_10.normalize(input).match(
-			/^([A-Z]{2})([0-9]{2})(\w+)$/
-		);
+		const [, country, checksum, account] =
+			Mod97_10.normalize(input).match(
+				/^([A-Z]{2})([0-9]{2})(\w{1,30})$/
+			) || [];
 
 		return { country, checksum, account };
 	}
