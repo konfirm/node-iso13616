@@ -1,6 +1,6 @@
 {
 	"name": "@konfirm/iso13616",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "ISO 13616-1:2007 - International Bank Account Number",
 	"main": "source/Entity/ISO13616.js",
 	"scripts": {
