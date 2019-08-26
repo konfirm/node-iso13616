@@ -1,3 +1,4 @@
+const Alphabet = require('@konfirm/alphabet');
 const { Mod97_10: ISO7064_Mod97_10 } = require('@konfirm/iso7064');
 
 /**
@@ -15,7 +16,7 @@ class Mod97_10 extends ISO7064_Mod97_10 {
 	 * @memberof Mod97_10
 	 */
 	static get indices() {
-		return '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+		return Alphabet.from('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ');
 	}
 
 	/**
@@ -26,7 +27,7 @@ class Mod97_10 extends ISO7064_Mod97_10 {
 	 * @memberof Mod97_10
 	 */
 	static get alphabet() {
-		return '0123456789';
+		return Alphabet.from('0123456789');
 	}
 }
 

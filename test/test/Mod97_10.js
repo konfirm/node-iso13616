@@ -1,5 +1,6 @@
 /* global source, describe, it, each, expect */
 
+const Alphabet = require('@konfirm/alphabet');
 const Mod97_10 = source('Entity/Mod97_10');
 const { Mod97_10: ISO7064_Mod97_10 } = require('@konfirm/iso7064');
 
@@ -18,23 +19,23 @@ describe('ISO 13616', () => {
 			designation   | yes   | ${3}
 			modulus       | yes   | ${97}
 			radix         | yes   | ${10}
-			indices       | no    | 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ
-			alphabet      | yes   | 0123456789
+			indices       | no    | ${Alphabet.from('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ')}
+			alphabet      | yes   | ${Alphabet.from('0123456789')}
 			double        | yes   | ${true}
 	
 		`(
-			'$property override (${equal) has value $value',
+			'$property override ($equal) has value $value',
 			({ property, equal, value }, next) => {
 				expect(property in Mod97_10).to.be.true();
 				expect(property in ISO7064_Mod97_10).to.be.true();
 				expect(Mod97_10[property]).to.equal(value);
 
 				if (equal === 'yes') {
-					expect(Mod97_10[property]).to.equal(
+					expect(Mod97_10[property]).to.shallow.equal(
 						ISO7064_Mod97_10[property]
 					);
 				} else {
-					expect(Mod97_10[property]).not.to.equal(
+					expect(Mod97_10[property]).not.to.shallow.equal(
 						ISO7064_Mod97_10[property]
 					);
 				}
