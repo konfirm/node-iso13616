@@ -18,17 +18,6 @@ class Mod97_10 extends ISO7064_Mod97_10 {
 	static get indices() {
 		return Alphabet.from('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ');
 	}
-
-	/**
-	 * Specify the checksum alphabet (as it normally inherits from indices)
-	 *
-	 * @readonly
-	 * @static
-	 * @memberof Mod97_10
-	 */
-	static get alphabet() {
-		return Alphabet.from('0123456789');
-	}
 }
 
 module.exports = Mod97_10;
