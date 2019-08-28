@@ -1,23 +1,10 @@
-const Alphabet = require('@konfirm/alphabet');
-const { Mod97_10: ISO7064_Mod97_10 } = require('@konfirm/iso7064');
+const { Mod97_10, Alphabet } = require('@konfirm/iso7064');
 
 /**
  * Extension of the ISO7064 MOD 97-10 Algorithm
- *
- * @class Mod97_10
- * @extends {ISO7064/Mod97_10}
  */
-class Mod97_10 extends ISO7064_Mod97_10 {
-	/**
-	 * The indices (input characters) allowing all input characters valid for ISO13616
-	 *
-	 * @readonly
-	 * @static
-	 * @memberof Mod97_10
-	 */
-	static get indices() {
-		return Alphabet.from('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ');
-	}
-}
-
-module.exports = Mod97_10;
+module.exports = Mod97_10.factory({
+	algorithm: 'MOD 97-10 (Custom)',
+	designation: 3,
+	indices: Alphabet.from('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ')
+});

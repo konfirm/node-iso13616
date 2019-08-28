@@ -31,7 +31,6 @@
 		"prettier": "^1.18.2"
 	},
 	"dependencies": {
-		"@konfirm/alphabet": "^2.0.0",
-		"@konfirm/iso7064": "^1.0.2"
+		"@konfirm/iso7064": "^2.0.0"
 	}
 }

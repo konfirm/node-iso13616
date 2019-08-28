@@ -2,20 +2,25 @@
 
 const Alphabet = require('@konfirm/alphabet');
 const Mod97_10 = source('Entity/Mod97_10');
-const { Mod97_10: ISO7064_Mod97_10 } = require('@konfirm/iso7064');
+const {
+	Mod97_10: ISO7064_Mod97_10,
+	ISO7064,
+	PureISO7064
+} = require('@konfirm/iso7064');
 
 describe('ISO 13616', () => {
 	describe('Mod97_10', () => {
 		it('extends ISO7064/Mod97_10', (next) => {
-			expect(Mod97_10.prototype).to.be.instanceof(ISO7064_Mod97_10);
+			expect(Mod97_10).to.be.instanceof(ISO7064);
+			expect(Mod97_10).to.be.instanceof(PureISO7064);
 			next();
 		});
 
 		each`
 			property      | equal | value
 			--------------|-------|-------
-			algorithm     | yes   | MOD 97-10
-			specification | yes   | ISO 7064, MOD 97-10
+			algorithm     | no    | MOD 97-10 (Custom)
+			specification | no    | ISO 7064, MOD 97-10 (Custom)
 			designation   | yes   | ${3}
 			modulus       | yes   | ${97}
 			radix         | yes   | ${10}
