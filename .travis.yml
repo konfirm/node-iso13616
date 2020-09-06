@@ -1,22 +1,24 @@
 language: node_js
+os: linux
+dist: xenial
 node_js:
-    - '7'
-    - '8'
-    - '9'
-    - '10'
-    - '11'
-    - '12'
-
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
 jobs:
-    include:
-        - stage: npm release
-          if: tag IS present
-          node_js: 12
-          deploy:
-              provider: npm
-              email: rogier+npm@konfirm.eu
-              on:
-                  branch: master
-                  tags: true
-              api_key:
-                  secure: v4Lrla73G2yQMWps4aUq7L7sC+yJ0X8tzG49YZIYmNO41iwEEXenX2c0BhJcJ4qckDrIUPmlcDCdjFsB/9nryWfc94Oi7biUPDIclXgQYPyhm/JlFvrSKwZyXz8d4sR1kw5gb8iRn6iV1OLe6HvQKU3zfjAzh/3kUiAPe7fuVpNjsaCdvJU3TrPAzKI7LpD9HjCsNTCDpoPiQY9KiPd3g1ylWjBE1XuGWtzjsHXPFOz1Lmfws7u7v9ox8/o4FnUJpxmGFTMavjXJUh1g7utadO3UEGxRpA1TUDPFHeWsrp3MRgJhp3PfD2T2GPOJJH3ynWAZIcF3Ok1vxId1BwWA6i8HCgb6KesfoGUUPoNyyaty2DDuPlMYo2vyetnjiCCdn/xIrEYtbNCMcK15BzPQyil8rTCkTcr49k85x3Hx1IobKhjhrX6RaIV8Vu+eZJ0d2GzHsqHtFhTNziZcrUdRQKa07gKDXizlxYNLtXrQ/RmzDPN8d7Fkq8mxCX7ZdZmFmXksy2hq9bdOABMjorZEtCPjJ7YZAMdNG/6PjNYNwsTrEENA5kbHURtNl5b+C0Tb7ALXm7UUQ7i4nOOG25C9GqH9LQQQKSsCMFg5dZJ4i5L4YZCMJcqh+GvdlFmj5i0znSf903b29/AfD4OotvGiX3j1ZmCsIUyGNy14J4yImKo=
+  include:
+    - stage: npm release
+      if: tag IS present
+      node_js: 14
+      deploy:
+        provider: npm
+        email: rogier+npm@konfirm.eu
+        on:
+          branch: master
+          tags: true
+        api_key:
+          secure: DHydKYIwKHLAZlO4bq6PPYIEExsUcIJSUmW20sqUN8rAQ8+mS7porwL+vo1aaZauWSvY8YL3Mi1tZXpnA3upG6JecfdfqPL+UCS2tvYzmbRMs0+3xXAU+O3Hb46JG6GYhGHKJcX7em1jf2amMhTZxVTlK5+cePhVm4wCt6uEtr0CJNmxrTDs6mb1spxw9w8IearEfyvaYrZjQKlmqQW60NeT7uAF+XhFp3Xq2ztKj274p/+nNEsQ2X3r5fW8mt96p58cmy79JCc1gwgfGslDNsU7tubNcO1TPKdar1SH2AdHxxxHf3qaJTlpdBeMPXnq2bJXDDHB38VkS/GfaBOeag/WMoh/eLnBsZrxktf8d5TNu8Wr2Pd00DiEiG+p1w45iREw1fiWMF+c76c2Pr27Pb3DzArSqmAwas/7mA3TLbH2D5VwpkdtQramMFf3hNDO0LoSh2JVI9ev/dKgZWRTi9YrEnTZTCnrtT3lwFr3kLHTV2hs4Zq4k5UXiFCDhD7ewEjY6wYCs8k+XkN4oBZCLVbYl3qFDJHLp29wX1GxkW69iYjP3QKXJ0cpS9Gqhef2aAZC3Adwp3lskKGwBPq7qai3f+DfajogrcYFaALSYEs6pwFwqoofIfb5vL7aj5XsJGE8EXSfgiPjgX5riNjMehRrDDqAkgGb4hSExsRVL3M=
