@@ -1,6 +1,6 @@
 # ISO 13616
 
-Implementation of [ISO 13616-1:2007 - International Bank Account Number](https://www.iso.org/standard/41031.html)
+Implementation of [ISO 13616-1:2020 - International Bank Account Number](https://www.iso.org/standard/41031.html)
 
 # Installation
 
@@ -35,7 +35,9 @@ console.log(ISO13616.validate('AT 61 19043 00234573201')); // true
 
 ## checksum
 
-The checksum method calculates the checksum for the provided account and country values
+The checksum method calculates the checksum for the provided account and country values. As per ISO13616-1:2020 the checksum will be in the range `02-98`.
+
+**NOTE**, versions prior to 2.0 incorrectly used the character range `03-99`
 
 | argument | type                 | description                                          |
 | -------- | -------------------- | ---------------------------------------------------- |
