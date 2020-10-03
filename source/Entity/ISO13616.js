@@ -38,10 +38,8 @@ class ISO13616 {
 		const checksum = Mod97_10.checksum(numeric);
 		const number = Number(checksum);
 
-		// there are three edge cases which pass validation with two different checksums
-		// 97/00, 98/01, 99/02 would all pass
-		// we never provided the 00, 01 nor 02 value and always provide the higher values
-		return number < 100 - modulus ? String(number + modulus) : checksum;
+		// ISO13616-1:2020 states: the check digits can only be in the range [02..98]
+		return number < 99 - modulus ? String(number + modulus) : checksum;
 	}
 
 	/**
