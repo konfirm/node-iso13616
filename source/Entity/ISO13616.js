@@ -39,7 +39,7 @@ class ISO13616 {
 		const number = Number(checksum);
 
 		// ISO13616-1:2020 states: the check digits can only be in the range [02..98]
-		return number < 99 - modulus ? String(number + modulus) : checksum;
+		return number <= 98 - modulus ? String(number + modulus) : checksum;
 	}
 
 	/**
