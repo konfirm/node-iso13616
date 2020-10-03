@@ -1,6 +1,6 @@
 # ISO 13616
 
-Implementation of [ISO 13616-1:2020 - International Bank Account Number](https://www.iso.org/standard/41031.html)
+Implementation of [ISO 13616-1:2020 - International Bank Account Number](https://www.iso.org/standard/81090.html)
 
 # Installation
 
