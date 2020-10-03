@@ -5,7 +5,7 @@ const Mod97_10 = source('Entity/Mod97_10');
 const {
 	Mod97_10: ISO7064_Mod97_10,
 	ISO7064,
-	PureISO7064
+	PureISO7064,
 } = require('@konfirm/iso7064');
 
 describe('ISO 13616', () => {
@@ -27,7 +27,7 @@ describe('ISO 13616', () => {
 			indices       | no    | ${Alphabet.from('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ')}
 			alphabet      | yes   | ${Alphabet.from('0123456789')}
 			double        | yes   | ${true}
-	
+
 		`(
 			'$property override ($equal) has value $value',
 			({ property, equal, value }, next) => {
