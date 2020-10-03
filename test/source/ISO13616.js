@@ -1,6 +1,6 @@
 /* global source, describe, it, each, expect */
 
-const ISO31616 = source('Entity/ISO13616');
+const ISO13616 = source('Entity/ISO13616');
 
 describe('ISO 13616', () => {
 	describe('validates', () => {
@@ -115,7 +115,7 @@ describe('ISO 13616', () => {
 			XK 05 1212 012345678906              | yes
 			YT 31 20041 01005 0500013M026 06     | yes
 		`('validate $input: $valid', ({ input, valid }, next) => {
-			expect(ISO31616.validate(input)).to.equal(valid === 'yes');
+			expect(ISO13616.validate(input)).to.equal(valid === 'yes');
 
 			next();
 		});
@@ -326,7 +326,7 @@ describe('ISO 13616', () => {
 		`(
 			'country $country and account $account creates checksum $checksum',
 			({ country, account, checksum }, next) => {
-				expect(ISO31616.checksum(account, country)).to.equal(checksum);
+				expect(ISO13616.checksum(account, country)).to.equal(checksum);
 
 				next();
 			}
@@ -444,11 +444,11 @@ describe('ISO 13616', () => {
 		`(
 			'generates "$full" and formatted "$formatted" from country $country and account $account',
 			({ country, account, full, formatted }, next) => {
-				expect(ISO31616.generate(account, country)).to.equal(full);
-				expect(ISO31616.generate(account, country, false)).to.equal(
+				expect(ISO13616.generate(account, country)).to.equal(full);
+				expect(ISO13616.generate(account, country, false)).to.equal(
 					full
 				);
-				expect(ISO31616.generate(account, country, true)).to.equal(
+				expect(ISO13616.generate(account, country, true)).to.equal(
 					formatted
 				);
 
@@ -568,7 +568,7 @@ describe('ISO 13616', () => {
 		`(
 			'Symbol.match $input into country $country, account $account and checksum $checksum',
 			({ input, country, checksum, account }, next) => {
-				const match = input.match(ISO31616);
+				const match = input.match(ISO13616);
 
 				expect(match).to.be.object();
 				expect(match).to.contain('country');
@@ -652,7 +652,7 @@ describe('ISO 13616', () => {
 			abc.def.ghi.jkl.mno.pqr.stu.vwx.yz   | ABCD EFGH IJKL MNOP QRST UVWX YZ
 			abc.def.ghi.jkl.mno.pqr.stu.vwx.yz12 | ABCD EFGH IJKL MNOP QRST UVWX YZ12
 		`('input "$input" is formatted as "$output"', ({ input, output }, next) => {
-			expect(ISO31616.format(input)).to.equal(output);
+			expect(ISO13616.format(input)).to.equal(output);
 
 			next();
 		});
