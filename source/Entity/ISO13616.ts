@@ -1,11 +1,17 @@
-const Mod97_10 = require('./Mod97_10.js');
+import { CustomMod97_10 } from './Mod97_10';
+
+export type ISO13616Match = {
+	country: string;
+	checksum: string;
+	account: string;
+};
 
 /**
  * Base ISO 13616 implementation
  *
  * @class ISO13616
  */
-class ISO13616 {
+export class ISO13616 {
 	/**
 	 * Validate the input to satisfy the ISO 13616 checksum
 	 *
@@ -14,8 +20,8 @@ class ISO13616 {
 	 * @returns {boolean} valid
 	 * @memberof ISO13616
 	 */
-	static validate(input) {
-		const { country, checksum, account } = String(input).match(this);
+	static validate(input: string): boolean {
+		const { country, checksum, account } = this[Symbol.match](String(input));
 
 		return this.checksum(account, country) === checksum;
 	}
@@ -29,13 +35,13 @@ class ISO13616 {
 	 * @returns {string} checksum
 	 * @memberof ISO13616
 	 */
-	static checksum(account, country) {
-		const { modulus, indices } = Mod97_10;
+	static checksum(account: string, country: string): string {
+		const { modulus, indices } = CustomMod97_10;
 		const numeric = Array.from(`${account}${country}`)
 			.map((char) => indices.indexOf(char))
 			.filter((value) => value >= 0)
 			.join('');
-		const checksum = Mod97_10.checksum(numeric);
+		const checksum = CustomMod97_10.checksum(numeric);
 		const number = Number(checksum);
 
 		// ISO13616-1:2020 states: the check digits can only be in the range [02..98]
@@ -52,11 +58,11 @@ class ISO13616 {
 	 * @returns {string} generated ISO 13616
 	 * @memberof ISO13616
 	 */
-	static generate(account, country, format = false) {
+	static generate(account: string, country: string, format: boolean = false): string {
 		const checksum = this.checksum(account, country);
 		const generated = `${country}${checksum}${account}`;
 
-		return format ? this.format(generated) : Mod97_10.normalize(generated);
+		return format ? this.format(generated) : CustomMod97_10.normalize(generated);
 	}
 
 	/**
@@ -67,12 +73,15 @@ class ISO13616 {
 	 * @returns {string} formatted
 	 * @memberof ISO13616
 	 */
-	static format(input) {
-		return Array.from(Mod97_10.normalize(input)).reduce(
-			(carry, char, index) =>
-				carry + (index && index % 4 === 0 ? ' ' : '') + char,
-			''
-		);
+	static format(input: string | number): string {
+		const normal: string = CustomMod97_10.normalize(String(input));
+
+		return Array.from(normal)
+			.reduce(
+				(carry, char, index) =>
+					carry + (index && index % 4 === 0 ? ' ' : '') + char,
+				''
+			);
 	}
 
 	/**
@@ -84,14 +93,12 @@ class ISO13616 {
 	 * @returns {object} {country, checksum, account}
 	 * @memberof ISO13616
 	 */
-	static [Symbol.match](input) {
+	static [Symbol.match](input: string): ISO13616Match {
 		const [, country, checksum, account] =
-			Mod97_10.normalize(input).match(
+			CustomMod97_10.normalize(input).match(
 				/^([A-Z]{2})([0-9]{2})(\w{1,30})$/
 			) || [];
 
 		return { country, checksum, account };
 	}
 }
-
-module.exports = ISO13616;
