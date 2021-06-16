@@ -4,6 +4,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [UNRELEASED]
+
+### Fixed
+### Added
+
+- Typescript types
+- ES Modules
+- `match` method
+
+### Changed
+
+- Updated CI/CD settings be Node.js versions 12, 14, and 16
+- Library rewritten to Typescript
+- Instead of a fully static ISO13616 class, all functions are now exported individually (making `[Symbol.match]` no longer a viable option)
+
+### Removed
+
+- **BREAKING** (implicit) default export
+- **BREAKING** `[Symbol.match]` syntax, move to using `ISO13616.match` instead
+
+
 ## [2.0.0] - 2020-10-03
 
 ### Fixed
@@ -46,3 +67,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.0] - 2019-07-03
 
 First release
+
+[unreleased]: https://github.com/konfirm/node-iso13616/compare/v2.0.0...HEAD
+[2.0.0]: https://github.com/konfirm/node-iso13616/compare/v1.0.5...v2.0.0
+[1.0.5]: https://github.com/konfirm/node-iso13616/compare/v1.0.4...v1.0.5
+[1.0.4]: https://github.com/konfirm/node-iso13616/compare/v1.0.3...v1.0.4
+[1.0.3]: https://github.com/konfirm/node-iso13616/compare/v1.0.2...v1.0.3
+[1.0.2]: https://github.com/konfirm/node-iso13616/compare/v1.0.1...v1.0.2
+[1.0.1]: https://github.com/konfirm/node-iso13616/compare/v1.0.0...v1.0.1
+[1.0.0]: https://github.com/konfirm/node-iso13616/releases/tag/v1.0.0
