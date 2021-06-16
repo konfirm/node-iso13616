@@ -4,6 +4,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [UNRELEASED]
+
+### Fixed
+### Added
+
+- Typescript types
+- ES Modules
+
+### Changed
+
+- Updated CI/CD settings be Node.js versions 12, 14, and 16
+- Library rewritten to Typescript
+
+### Removed
+
+- (implicit) default export
+
+
 ## [2.0.0] - 2020-10-03
 
 ### Fixed
