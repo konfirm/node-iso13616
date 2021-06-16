@@ -12,7 +12,7 @@ $ npm install --save @konfirm/iso13616
 
 # Usage
 
-As a version [Unreleased] the ISO 13616 package has full support for Typescript types and ES Modules.
+As a version 3.0 the ISO 13616 package has full support for Typescript types and ES Modules.
 For CommonJS (`require`) users the packages has a breaking change as it not longer supports the `[Symbol.match]` syntax for matching, please update to use `ISO13616.match` instead
 
 
@@ -212,7 +212,7 @@ console.log(checksum); // '61'
 
 ## [Symbol.match]
 
-As of version [Unreleased] the `[Symbol.match]` is no longer supported, use `ISO13616.match` instead.
+As of version 3.0 the `[Symbol.match]` is no longer supported, use `ISO13616.match` instead.
 
 
 # License
