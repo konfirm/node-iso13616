@@ -17,10 +17,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Updated CI/CD settings be Node.js versions 12, 14, and 16
 - Library rewritten to Typescript
+- Instead of a fully static ISO13616 class, all functions are now exported individually (making `[Symbol.match]` no longer a viable option)
 
 ### Removed
 
 - (implicit) default export
+- `[Symbol.match]` syntax, move to using `ISO13616.match` instead
 
 
 ## [2.0.0] - 2020-10-03

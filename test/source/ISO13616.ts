@@ -1,6 +1,6 @@
 import * as test from 'tape';
 import each from 'template-literal-each';
-import { ISO13616 } from '../../source/Entity/ISO13616';
+import * as ISO13616 from '../../source/Entity/ISO13616';
 
 test('ISO 13616/validate', (t) => {
 	each`
@@ -566,17 +566,13 @@ test('ISO 13616/matching', (t) => {
 		YT 31 20041 01005 0500013M026 06           | YT      | 31       | 20041010050500013M02606
 	`((record) => {
 		const { input, country, checksum, account } = record as any;
+		const match = ISO13616.match(input);
 
-		[
-			{ method: 'input.match(ISO13616)', match: input.match(ISO13616) },
-			{ method: 'ISO1361.match(input)', match: ISO13616.match(input) },
-		].forEach(({ method, match }) => {
-			t.equal(typeof match, 'object', 'result is an object');
+		t.equal(typeof match, 'object', 'result is an object');
 
-			t.equal(match.country, country, `property country is ${country}`);
-			t.equal(match.checksum, checksum, `property checksum is ${checksum}`);
-			t.equal(match.account, account, `property account is ${account}`);
-		});
+		t.equal(match.country, country, `property country is ${country}`);
+		t.equal(match.checksum, checksum, `property checksum is ${checksum}`);
+		t.equal(match.account, account, `property account is ${account}`);
 	});
 
 	t.end();
