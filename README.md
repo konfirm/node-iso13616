@@ -55,7 +55,7 @@ The validate method validates the provided value and determines whether it is a 
 import { ISO13616 } from '@konfirm/iso13616';
 
 console.log(ISO13616.validate('foo')); // false
-console.log(ISO13616.validate('AT 61 19043 00234573201')); // true
+console.log(ISO13616.validate('AD 97 82732793347266899771')); // true
 ```
 
 #### CommonJS
@@ -64,7 +64,7 @@ console.log(ISO13616.validate('AT 61 19043 00234573201')); // true
 const { ISO13616 } = require('@konfirm/iso13616');
 
 console.log(ISO13616.validate('foo')); // false
-console.log(ISO13616.validate('AT 61 19043 00234573201')); // true
+console.log(ISO13616.validate('CA 02 0131 3167 8000 0065 1238 8')); // true
 ```
 
 #### Typescript
@@ -73,7 +73,7 @@ console.log(ISO13616.validate('AT 61 19043 00234573201')); // true
 import { ISO13616 } from '@konfirm/iso13616';
 
 console.log(ISO13616.validate('foo')); // false
-console.log(ISO13616.validate('AT 61 19043 00234573201')); // true
+console.log(ISO13616.validate('BY 13 NBRB 3600 900000002Z00AB00')); // true
 ```
 
 ## checksum
@@ -92,7 +92,7 @@ The checksum method calculates the checksum for the provided account and country
 ```js
 import { ISO13616 } from '@konfirm/iso13616';
 
-console.log(ISO13616.checksum('19043 00234573201', 'AT')); // '61'
+console.log(ISO13616.checksum('0131 3167 8000 0065 1238 8', 'CA')); // '02'
 ```
 
 ### CommonJS example
@@ -100,7 +100,7 @@ console.log(ISO13616.checksum('19043 00234573201', 'AT')); // '61'
 ```js
 const { ISO13616 } = require('@konfirm/iso13616');
 
-console.log(ISO13616.checksum('19043 00234573201', 'AT')); // '61'
+console.log(ISO13616.checksum('117 73016 1111101800000000', 'HU')); // '42'
 ```
 
 ### Typescript example
@@ -108,7 +108,7 @@ console.log(ISO13616.checksum('19043 00234573201', 'AT')); // '61'
 ```ts
 import { ISO13616 } from '@konfirm/iso13616';
 
-console.log(ISO13616.checksum('19043 00234573201', 'AT')); // '61'
+console.log(ISO13616.checksum('X 05428 11101 000000123456', 'IT')); // '60'
 ```
 
 ## generate
@@ -126,8 +126,8 @@ The generate method generates the full ISO 13616 value for the provided account 
 ```js
 import { ISO13616 } import '@konfirm/iso13616';
 
-console.log(ISO13616.generate('19043 00234573201', 'AT')); // 'AT611904300234573201'
-console.log(ISO13616.generate('19043 00234573201', 'AT', true)); // 'AT61 1904 3002 3457 3201'
+console.log(ISO13616.generate('CENR 00000000000000700025', 'SV')); // 'SV62CENR00000000000000700025'
+console.log(ISO13616.generate('CENR 00000000000000700025', 'SV', true)); // 'SV62 CENR 0000 0000 0000 0070 0025'
 ```
 
 ### CommonJS example
@@ -135,8 +135,8 @@ console.log(ISO13616.generate('19043 00234573201', 'AT', true)); // 'AT61 1904 3
 ```js
 const { ISO13616 } = require('@konfirm/iso13616');
 
-console.log(ISO13616.generate('19043 00234573201', 'AT')); // 'AT611904300234573201'
-console.log(ISO13616.generate('19043 00234573201', 'AT', true)); // 'AT61 1904 3002 3457 3201'
+console.log(ISO13616.generate('NBRB 3600 900000002Z00AB00', 'BY')); // 'BY13NBRB3600900000002Z00AB00'
+console.log(ISO13616.generate('NBRB 3600 900000002Z00AB00', 'BY', true)); // 'BY13 NBRB 3600 9000 0000 2Z00 AB00'
 ```
 
 ### Typescript example
@@ -144,8 +144,8 @@ console.log(ISO13616.generate('19043 00234573201', 'AT', true)); // 'AT61 1904 3
 ```ts
 import { ISO13616 } import '@konfirm/iso13616';
 
-console.log(ISO13616.generate('19043 00234573201', 'AT')); // 'AT611904300234573201'
-console.log(ISO13616.generate('19043 00234573201', 'AT', true)); // 'AT61 1904 3002 3457 3201'
+console.log(ISO13616.generate('123412341234', 'BI')); // 'BI33123412341234'
+console.log(ISO13616.generate('123412341234', 'BI', true)); // 'BI33 1234 1234 1234'
 ```
 
 ## format
@@ -162,7 +162,7 @@ Format the provided value in pairs of four characters
 ```js
 import { ISO13616 } from '@konfirm/iso13616';
 
-console.log(ISO13616.format('AT611904300234573201')); // 'AT61 1904 3002 3457 3201'
+console.log(ISO13616.format('ab-cd12')); // 'ABCD 12'
 ```
 
 ### CommonJS example
@@ -170,7 +170,7 @@ console.log(ISO13616.format('AT611904300234573201')); // 'AT61 1904 3002 3457 32
 ```js
 const { ISO13616 } = require('@konfirm/iso13616');
 
-console.log(ISO13616.format('AT611904300234573201')); // 'AT61 1904 3002 3457 3201'
+console.log(ISO13616.format('ab-cd-12 ')); // 'ABCD 12'
 ```
 
 ### Typescript example
@@ -178,7 +178,7 @@ console.log(ISO13616.format('AT611904300234573201')); // 'AT61 1904 3002 3457 32
 ```js
 import { ISO13616 } from '@konfirm/iso13616';
 
-console.log(ISO13616.format('AT611904300234573201')); // 'AT61 1904 3002 3457 3201'
+console.log(ISO13616.format('ab.cd 12')); // 'ABCD 12'
 ```
 
 ## match
