@@ -181,6 +181,54 @@ import { ISO13616 } from '@konfirm/iso13616';
 console.log(ISO13616.format('AT611904300234573201')); // 'AT61 1904 3002 3457 3201'
 ```
 
+## match
+
+Match the input and return an object containing the matched country, checksum, account
+
+| argument | type                 | description               |
+| -------- | -------------------- | ------------------------- |
+| input    | `string` or `number` | The ISO 13616 to validate |
+
+
+### ES Module example
+
+```js
+import { ISO13616 } = from '@konfirm/iso13616';
+console.log(ISO13616.match('AT 61 19043 00234573201'));
+// { country: 'AT', checksum: '61', account: '1904300234573201' }
+
+const { country, account, checksum } = ISO13616.match('AT 61 19043 00234573201');
+console.log(country); // 'AT'
+console.log(account); // '1904300234573201'
+console.log(checksum); // '61'
+```
+
+### CommonJS example
+
+```js
+const { ISO13616 } = require('@konfirm/iso13616');
+console.log(ISO13616.match('AT 61 19043 00234573201'));
+// { country: 'AT', checksum: '61', account: '1904300234573201' }
+
+const { country, account, checksum } = ISO13616.match('AT 61 19043 00234573201');
+console.log(country); // 'AT'
+console.log(account); // '1904300234573201'
+console.log(checksum); // '61'
+```
+
+### Typescript example
+
+```ts
+import { ISO13616 } = from '@konfirm/iso13616';
+console.log(ISO13616.match('AT 61 19043 00234573201'));
+// { country: 'AT', checksum: '61', account: '1904300234573201' }
+
+const { country, account, checksum } = ISO13616.match('AT 61 19043 00234573201');
+console.log(country); // 'AT'
+console.log(account); // '1904300234573201'
+console.log(checksum); // '61'
+```
+
 ## [Symbol.match]
 
 Implementation of the `Symbol.match` method to allow for using the `ISO13616` class as argument to `String.match`

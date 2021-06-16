@@ -85,20 +85,32 @@ export class ISO13616 {
 	}
 
 	/**
-	 * Implementation of Symbol.match allowing the ISO13616 class to be
-	 * used directly as argument to String.match
+	 * Match the input and return the matches values as object
 	 *
 	 * @static
 	 * @param {string} input
-	 * @returns {object} {country, checksum, account}
+	 * @returns {ISO13616Match}
 	 * @memberof ISO13616
 	 */
-	static [Symbol.match](input: string): ISO13616Match {
+	static match(input: string): ISO13616Match {
 		const [, country, checksum, account] =
 			CustomMod97_10.normalize(input).match(
 				/^([A-Z]{2})([0-9]{2})(\w{1,30})$/
 			) || [];
 
 		return { country, checksum, account };
+	}
+
+	/**
+	 * Implementation of Symbol.match allowing the ISO13616 class to be
+	 * used directly as argument to String.match
+	 *
+	 * @static
+	 * @param {string} input
+	 * @returns {ISO13616Match}
+	 * @memberof ISO13616
+	 */
+	static [Symbol.match](input: string): ISO13616Match {
+		return this.match(input);
 	}
 }

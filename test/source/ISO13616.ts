@@ -459,7 +459,7 @@ test('ISO 13616/generate', (t) => {
 	t.end();
 });
 
-test('ISO 13616/match (Symbol.match)', (t) => {
+test('ISO 13616/matching', (t) => {
 	const und = undefined;
 
 	each`
@@ -569,13 +569,17 @@ test('ISO 13616/match (Symbol.match)', (t) => {
 		YT 31 20041 01005 0500013M026 06           | YT      | 31       | 20041010050500013M02606
 	`((record) => {
 		const { input, country, checksum, account } = record as any;
-		const match = input.match(ISO13616);
 
-		t.equal(typeof match, 'object', 'result is an object');
+		[
+			{ method: 'input.match(ISO13616)', match: input.match(ISO13616) },
+			{ method: 'ISO1361.match(input)', match: ISO13616.match(input) },
+		].forEach(({ method, match }) => {
+			t.equal(typeof match, 'object', 'result is an object');
 
-		t.equal(match.country, country, `property country is ${country}`);
-		t.equal(match.checksum, checksum, `property checksum is ${checksum}`);
-		t.equal(match.account, account, `property account is ${account}`);
+			t.equal(match.country, country, `property country is ${country}`);
+			t.equal(match.checksum, checksum, `property checksum is ${checksum}`);
+			t.equal(match.account, account, `property account is ${account}`);
+		});
 	});
 
 	t.end();
