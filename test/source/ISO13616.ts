@@ -585,7 +585,7 @@ test('ISO 13616/matching', (t) => {
 	t.end();
 });
 
-test('ISO 13616/match (Symbol.match)', (t) => {
+test('ISO 13616/format', (t) => {
 	each`
 		input                                | output
 		-------------------------------------|--------
