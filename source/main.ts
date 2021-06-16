@@ -1,1 +1,1 @@
-export { ISO13616 } from './Entity/ISO13616';
+export * from './Entity/ISO13616';

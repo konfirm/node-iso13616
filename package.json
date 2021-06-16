@@ -11,7 +11,7 @@
 		"test:pretty": "nyc --require ts-node/register tape 'test/**/*.ts' | tap-spec",
 		"test:pretty:work": "nyc --require ts-node/register tape test/**/*.ts | tap-spec",
 		"prebuild": "npm run build:types",
-		"build:types": "tsc --declarationDir temp --declaration true --emitDeclarationOnly true",
+		"build:types": "./node_modules/.bin/tsc --declarationDir temp --declaration true --emitDeclarationOnly true",
 		"build": "rollup -c rollup.config.js",
 		"postbuild": "rm -rf temp",
 		"prepack": "npm run build"
