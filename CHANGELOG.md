@@ -21,8 +21,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
-- (implicit) default export
-- `[Symbol.match]` syntax, move to using `ISO13616.match` instead
+- **BREAKING** (implicit) default export
+- **BREAKING** `[Symbol.match]` syntax, move to using `ISO13616.match` instead
 
 
 ## [2.0.0] - 2020-10-03
