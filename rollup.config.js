@@ -6,7 +6,7 @@ import declaration from 'rollup-plugin-dts'
 import { main, module, types } from './package.json';
 
 const defaults = {
-	name: 'Checksum',
+	name: 'ISO13616',
 	sourcemap: true,
 };
 
