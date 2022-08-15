@@ -7,8 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Fixed
+
+- Exported name of the IIFE build (`ISO13616`)
+
 ### Added
 ### Changed
+
+- Moved CI/CD to GitHub Actions
+- Updated dependencies
+
 ### Removed
 
 
