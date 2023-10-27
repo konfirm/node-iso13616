@@ -1,5 +1,5 @@
 import * as test from 'tape';
-import each from 'template-literal-each';
+import { each } from 'template-literal-each';
 import * as ISO13616 from '../../source/Entity/ISO13616';
 
 test('ISO 13616/validate', (t) => {
