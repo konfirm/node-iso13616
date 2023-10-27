@@ -1,5 +1,5 @@
 import * as test from 'tape';
-import each from 'template-literal-each';
+import { each } from 'template-literal-each';
 import { ISO7064, PureISO7064, Mod97_10, Alphabet } from '@konfirm/iso7064';
 import { CustomMod97_10 } from '../../source/Entity/Mod97_10';
 
