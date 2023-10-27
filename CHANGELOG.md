@@ -9,10 +9,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 ### Added
 ### Changed
+### Removed
+
+
+## [3.0.2] - 2023-10-27
+
+### Changed
 
 - Updated dependencies
 
-### Removed
 
 
 ## [3.0.1] - 2022-08-15
@@ -90,7 +95,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 First release
 
-[unreleased]: https://github.com/konfirm/node-iso13616/compare/v3.0.1...HEAD
+[unreleased]: https://github.com/konfirm/node-iso13616/compare/v3.0.2...HEAD
+[3.0.2]: https://github.com/konfirm/node-iso13616/compare/v3.0.1...v3.0.2
 [3.0.1]: https://github.com/konfirm/node-iso13616/compare/v3.0.0...v3.0.1
 [3.0.0]: https://github.com/konfirm/node-iso13616/compare/v2.0.0...v3.0.0
 [2.0.0]: https://github.com/konfirm/node-iso13616/compare/v1.0.5...v2.0.0
