@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.1.0](https://github.com/konfirm/node-iso13616/compare/v3.0.2...v3.1.0) (2026-04-18)
+
+
+### Features
+
+* update dependencies ([7523339](https://github.com/konfirm/node-iso13616/commit/75233398be1c77e96c55b6f1633ac26a7fd7f2fd))
+
 ## [Unreleased]
 
 ### Fixed
