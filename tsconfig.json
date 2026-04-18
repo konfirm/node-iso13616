@@ -1,10 +1,11 @@
 {
 	"compilerOptions": {
 		"outDir": "./dist",
+		"rootDir": "./source",
 		"target": "es2015",
 		"declaration": false,
 		"strict": true,
-		"moduleResolution": "node",
+		"moduleResolution": "bundler",
 		"forceConsistentCasingInFileNames": true,
 		"skipLibCheck": true
 	},

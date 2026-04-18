@@ -1,4 +1,4 @@
-import * as test from 'tape';
+import test from 'tape';
 import { each } from 'template-literal-each';
 import * as ISO13616 from '../../source/Entity/ISO13616';
 
